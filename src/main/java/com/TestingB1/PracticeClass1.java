@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,7 +26,11 @@ public static void main(String[] args) throws InterruptedException {
    driver.manage().timeouts().implicitlyWait(3000l,TimeUnit.SECONDS);
 
    driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+   String actual = driver.getTitle();
+   String expected = "Practice Page";
+   Assert.assertEquals(actual, expected);
    System.out.println(driver.getTitle());
+   
    
    driver.findElement(By.className("radioButton")).click();
    driver.findElement(By.id("autocomplete")).clear();
