@@ -1,7 +1,10 @@
 package com.TestingB1;
 
 import java.awt.Desktop.Action;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,7 +29,7 @@ public static void main(String[] args) throws InterruptedException {
    driver.manage().timeouts().implicitlyWait(3000l,TimeUnit.SECONDS);
 
    driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-   String actual = driver.getTitle();
+  /* String actual = driver.getTitle();
    String expected = "Practice Page";
    Assert.assertEquals(actual, expected);
    System.out.println(driver.getTitle());
@@ -57,10 +60,20 @@ public static void main(String[] args) throws InterruptedException {
    
    Thread.sleep(3000);
    WebElement w=driver.findElement(By.xpath("//*[contains(text(),'Reload')]"));
-   action.moveToElement(w).click().perform();
+   action.moveToElement(w).click().perform();*/
    
-   Thread.sleep(3000);
-   driver.quit();
+   driver.findElement(By.xpath("//button[@id='openwindow']")).click();
+  Set<String> window = driver.getWindowHandles();
+ java.util.Iterator<String> it = window.iterator();
+ String parent = it.next();
+ String child = it.next();
+ driver.switchTo().window(child);
+ String ct = driver.getTitle();
+ System.out.println(ct);
+ Assert.assertEquals(ct, "QA Click Academy | Selenium,Jmeter,SoapUI,Appium,Database testing,QA Training Academy");
+ 
+  Thread .sleep(3000);
+  driver.quit();
    
    
    }
