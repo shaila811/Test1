@@ -62,7 +62,7 @@ public static void main(String[] args) throws InterruptedException {
    WebElement w=driver.findElement(By.xpath("//*[contains(text(),'Reload')]"));
    action.moveToElement(w).click().perform();*/
    
-   driver.findElement(By.xpath("//button[@id='openwindow']")).click();
+  driver.findElement(By.xpath("//button[@id='openwindow']")).click();
   Set<String> window = driver.getWindowHandles();
  java.util.Iterator<String> it = window.iterator();
  String parent = it.next();
