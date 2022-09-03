@@ -1,6 +1,6 @@
 package com.TestingB1;
 
-import java.awt.Desktop.Action;
+
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -21,14 +21,12 @@ public class PracticeClass1 {
 	
 public static void main(String[] args) throws InterruptedException {
 	
-   WebDriverManager.chromedriver().setup();
-   WebDriver driver = new ChromeDriver();
-	
-   driver.manage().window().maximize();
-   driver.manage().timeouts().pageLoadTimeout(6000l,TimeUnit.SECONDS);
-   driver.manage().timeouts().implicitlyWait(3000l,TimeUnit.SECONDS);
-
-   driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+	WebDriverManager.chromedriver().setup();
+	WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.manage().timeouts().pageLoadTimeout(6000l, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(3000l, TimeUnit.SECONDS);//dynamic wait
+	driver.get("https://rahulshettyacademy.com/AutomationPractice/");
   /* String actual = driver.getTitle();
    String expected = "Practice Page";
    Assert.assertEquals(actual, expected);

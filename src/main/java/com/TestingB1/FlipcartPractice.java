@@ -16,7 +16,6 @@ public class FlipcartPractice {
 		
 WebDriverManager.chromedriver().setup();
 WebDriver driver = new ChromeDriver();
-
 driver.manage().window().maximize();
 driver.manage().timeouts().pageLoadTimeout(6l,TimeUnit.SECONDS);
 driver.manage().timeouts().implicitlyWait(3l,TimeUnit.SECONDS);	
